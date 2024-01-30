@@ -1,6 +1,32 @@
-.body {
-	width: 100%;
-	height: 80vh;
+.body-container {
+	height: 60vh;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.body-first-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+}
+
+.body-btn {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.body-words {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	width: 50%;
+}
+
+.body-word {
+	margin: 5px;
 }
