@@ -14,9 +14,13 @@
 	width: 100%;
 }
 
+.body-input {
+	padding : 5px;
+}
 .body-btn {
     cursor: pointer;
     margin-left: 5px;
+	padding : 5px;
 }
 
 .body-words {
@@ -29,4 +33,6 @@
 
 .body-word {
 	margin: 5px;
+	background-color: antiquewhite;
+	padding : 5px;
 }

@@ -2,6 +2,7 @@ import "./Body.css";
 import { useState } from "react";
 
 const Body = () => {
+	const wordArray = [];
 	//Usestate that could detect change in the word input
 	const [word, setWord] = useState("");
 
@@ -13,14 +14,27 @@ const Body = () => {
 	//Function that triggers when button is clicked
 	const handleClick = () => {
 		// appends the word to the div
-		const words = document.getElementById("words");
+		if (word === "") {
+			window.alert("Please enter a word");
+			return;
+		} else {
+			const words = document.getElementById("words");
+			const value = wordArray.includes(word);
+			if (value === true) {
+				window.alert("Word already exists");
+				return;
+			}
+			console.log(wordArray);
+			console.log(value);
+			wordArray.push(word);
 
-		// Create a new div element
-		const newDiv = document.createElement("div");
-		newDiv.textContent = word;
-		newDiv.className = "body-word";
-		// Append the new div to the words container
-		words.appendChild(newDiv);
+			// Create a new div element
+			const newDiv = document.createElement("div");
+			newDiv.textContent = word;
+			newDiv.className = "body-word";
+			// Append the new div to the words container
+			words.appendChild(newDiv);
+		}
 	};
 
 	return (

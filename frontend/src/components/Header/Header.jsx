@@ -4,7 +4,7 @@ const Body = () => {
 	return (
 		<div className='header-container'>
 			<h1>CROSSWORDY</h1>
-			<p>Create Crosswords in just a click. </p>
+			<p>Create crosswords with a click </p>
 		</div>
 	);
 };
