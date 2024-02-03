@@ -1,5 +1,5 @@
-import "./Body.css";
 import { useState } from "react";
+import "./Body.css";
 
 const Body = () => {
 	const wordArray = [];
@@ -49,7 +49,7 @@ const Body = () => {
 					onChange={handleChange}
 				></input>
 				<button className='body-btn' onClick={handleClick}>
-					Add Word
+					Add Words
 				</button>
 			</div>
 			{/* div that will contain the words */}
