@@ -49,7 +49,7 @@ const Body = () => {
 					onChange={handleChange}
 				></input>
 				<button className='body-btn' onClick={handleClick}>
-					Add Words
+					Add Word
 				</button>
 			</div>
 			{/* div that will contain the words */}
