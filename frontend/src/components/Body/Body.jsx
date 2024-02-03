@@ -34,6 +34,9 @@ const Body = () => {
 			newDiv.className = "body-word";
 			// Append the new div to the words container
 			words.appendChild(newDiv);
+			// Clear the state
+			const inputField = document.querySelector('.body-input');
+    		inputField.value = "";
 		}
 	};
 
