@@ -47,7 +47,7 @@ const Body = () => {
 
 	const handleCreateCrossword = () => {
 		if (wordArray.length < 3) {
-			window.alert("Please enter at least 3 words");
+			window.alert("Enter at least 3 words");
 			return;
 		}
 	};
