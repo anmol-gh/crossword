@@ -15,12 +15,18 @@
 }
 
 .body-input {
-	padding : 5px;
+	padding: 5px;
 }
 .body-btn {
-    cursor: pointer;
-    margin-left: 5px;
-	padding : 5px;
+	cursor: pointer;
+	margin-left: 5px;
+	padding: 5px;
+}
+
+.body-btn-create {
+	cursor: pointer;
+	margin-left: 5px;
+	padding: 5px;
 }
 
 .body-words {
@@ -29,10 +35,11 @@
 	align-items: center;
 	flex-direction: row;
 	width: 50%;
+	flex-wrap: wrap;
 }
 
 .body-word {
 	margin: 5px;
 	background-color: antiquewhite;
-	padding : 5px;
+	padding: 5px;
 }
