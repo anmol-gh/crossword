@@ -43,6 +43,12 @@ const Body = () => {
 		}
 	};
 
+	const keyPress = (event) => {
+		console.log(event.key);
+		if (event.key === "Enter") {
+			handleClick();
+		}
+	};
 	//Function that triggers when Create Crossword button is clicked
 
 	const handleCreateCrossword = () => {
@@ -56,9 +62,11 @@ const Body = () => {
 		<div className='body-container'>
 			<div className='body-first-row'>
 				<input
+					type='text'
 					className='body-input'
 					placeholder='Enter a word'
 					onChange={handleChange}
+					onKeyDown={keyPress}
 				></input>
 				<button className='body-btn' onClick={handleClick}>
 					Add Word
