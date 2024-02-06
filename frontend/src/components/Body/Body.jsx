@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./Body.css";
 
+// Array that stores all the words
+const wordArray = [];
+
 const Body = () => {
-	const wordArray = [];
 	//Usestate that could detect change in the word input
 	const [word, setWord] = useState("");
 
@@ -11,7 +13,8 @@ const Body = () => {
 		setWord(event.target.value);
 	};
 
-	//Function that triggers when button is clicked
+	//Function that triggers when Add Word button is clicked
+
 	const handleClick = () => {
 		// appends the word to the div
 		if (word === "") {
@@ -19,24 +22,33 @@ const Body = () => {
 			return;
 		} else {
 			const words = document.getElementById("words");
-			const value = wordArray.includes(word);
+			const value = wordArray.includes(word.toUpperCase());
 			if (value === true) {
-				window.alert("Word already exists");
+				window.alert(`Word ${word} already exists`);
 				return;
 			}
-			console.log(wordArray);
 			console.log(value);
-			wordArray.push(word);
+			wordArray.push(word.toUpperCase());
+			console.log(wordArray);
 
 			// Create a new div element
 			const newDiv = document.createElement("div");
-			newDiv.textContent = word;
+			newDiv.textContent = word.toUpperCase();
 			newDiv.className = "body-word";
 			// Append the new div to the words container
 			words.appendChild(newDiv);
 			// Clear the state
-			const inputField = document.querySelector('.body-input');
-    		inputField.value = "";
+			const inputField = document.querySelector(".body-input");
+			inputField.value = "";
+		}
+	};
+
+	//Function that triggers when Create Crossword button is clicked
+
+	const handleCreateCrossword = () => {
+		if (wordArray.length < 3) {
+			window.alert("Please enter at least 3 words");
+			return;
 		}
 	};
 
@@ -50,6 +62,9 @@ const Body = () => {
 				></input>
 				<button className='body-btn' onClick={handleClick}>
 					Add Word
+				</button>
+				<button className='body-btn-create' onClick={handleCreateCrossword}>
+					Create Crossword
 				</button>
 			</div>
 			{/* div that will contain the words */}
