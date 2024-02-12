@@ -6,3 +6,16 @@
 	flex-direction: column;
 	align-items: center;
 }
+
+.header-heading {
+	font-size: 3rem;
+	font-weight: 800;
+	color: #f28a2e;
+}
+
+.header-paragraph {
+	font-size: 1.3rem;
+	color: #00796d;
+	font-weight: 400;
+	text-align: center;
+}
