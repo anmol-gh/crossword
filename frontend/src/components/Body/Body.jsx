@@ -10,9 +10,13 @@ const Body = () => {
 
 	//Function that could detect change in the word input
 	const handleChange = (event) => {
+		// Prevent input if it contains spaces
+		if (event.target.value.includes(" ")) {
+			event.target.value = event.target.value.replace(/\s/g, "");
+		}
 		setWord(event.target.value);
 	};
-
+	
 	//Function that triggers when Add Word button is clicked
 
 	const handleClick = () => {
@@ -43,6 +47,13 @@ const Body = () => {
 		}
 	};
 
+	// Function that triggers when Enter Key is pressed
+	const keyPress = (event) => {
+		console.log(event.key);
+		if (event.key === "Enter") {
+			handleClick();
+		}
+	};
 	//Function that triggers when Create Crossword button is clicked
 
 	const handleCreateCrossword = () => {
@@ -56,9 +67,11 @@ const Body = () => {
 		<div className='body-container'>
 			<div className='body-first-row'>
 				<input
+					type='text'
 					className='body-input'
 					placeholder='Enter a word'
 					onChange={handleChange}
+					onKeyDown={keyPress}
 				></input>
 				<button className='body-btn' onClick={handleClick}>
 					Add Word
