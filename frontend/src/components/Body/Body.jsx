@@ -10,9 +10,13 @@ const Body = () => {
 
 	//Function that could detect change in the word input
 	const handleChange = (event) => {
+		// Prevent input if it contains spaces
+		if (event.target.value.includes(" ")) {
+			event.target.value = event.target.value.replace(/\s/g, "");
+		}
 		setWord(event.target.value);
 	};
-
+	
 	//Function that triggers when Add Word button is clicked
 
 	const handleClick = () => {
