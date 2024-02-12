@@ -43,6 +43,7 @@ const Body = () => {
 		}
 	};
 
+	// Function that triggers when Enter Key is pressed
 	const keyPress = (event) => {
 		console.log(event.key);
 		if (event.key === "Enter") {

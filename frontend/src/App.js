@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
       <Body />
-      {/* <Crossword /> */}
+      <Crossword />
       <Footer />
     </>
   )
