@@ -13,6 +13,7 @@ const Body = () => {
 		// Prevent input if it contains spaces
 		if (event.target.value.includes(" ")) {
 			event.target.value = event.target.value.replace(/\s/g, "");
+			window.alert("Please don't press spacebar");
 		}
 		setWord(event.target.value);
 	};
@@ -44,6 +45,9 @@ const Body = () => {
 			// Clear the state
 			const inputField = document.querySelector(".body-input");
 			inputField.value = "";
+
+			const btns = document.querySelectorAll('.body-words');
+			btns.forEach(btn => btn.classList.add("bouncy"));
 		}
 	};
 
