@@ -30,6 +30,11 @@
 	padding: 5px;
 }
 
+.body-select {
+	margin-left: 5px;
+	padding: 5px;
+}
+
 .body-btn:hover {
 	border-radius: 2px;
 	background-color: #ff7700;
