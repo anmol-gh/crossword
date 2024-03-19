@@ -1,5 +1,5 @@
-import "./Body.css";
 import { useState } from "react";
+import "./Body.css";
 
 // Array that stores all the words
 const wordArray = [];
