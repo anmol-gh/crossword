@@ -1,43 +1,47 @@
 import React from "react";
-import "./Crossword.css";
+import "./Crossword.css"
 const Crossword = () => {
+
 	return (
-		<div className='crossword-container'>
-			<div className='row'>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-			</div>
-			<div className='row'>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-			</div>
-			<div className='row'>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-			</div>
-			<div className='row'>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-			</div>
-			<div className='row'>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-				<div className='column'></div>
-			</div>
+		<div className="crossword-container">
+			<table>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			  
 		</div>
 	);
 };

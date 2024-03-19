@@ -62,9 +62,19 @@ const Body = () => {
 
 	//Function that could detect change in the word input
 	const handleChange = (event) => {
+		// Prevent input if it contains spaces
+		if (event.target.value.includes(" ")) {
+			event.target.value = event.target.value.replace(/\s/g, "");
+			window.alert("Please don't press spacebar");
+		}
+		const newWord = event.target.value.trim();
+		if (newWord.length > 5) {
+			event.target.value = newWord.slice(0, 5); 
+			window.alert("Please enter a word with maximum 5 characters");
+		}
 		setWord(event.target.value);
 	};
-
+	
 	//Function that triggers when Add Word button is clicked
 
 	const handleClick = () => {
@@ -98,6 +108,9 @@ const Body = () => {
 			// Clear the state
 			const inputField = document.querySelector(".body-input");
 			inputField.value = "";
+
+			const btns = document.querySelectorAll('.body-words');
+			btns.forEach(btn => btn.classList.add("bouncy"));
 		}
 	};
 
@@ -140,10 +153,8 @@ const Body = () => {
 					<option>10x10</option>
 				</select>
 			</div>
-			{/* div that will contain the words */}
 			<div className='body-words' id='words'></div>
 		</div>
 	);
 };
-
 export default Body;
