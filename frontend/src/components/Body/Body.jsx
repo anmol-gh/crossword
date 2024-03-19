@@ -15,6 +15,11 @@ const Body = () => {
 			event.target.value = event.target.value.replace(/\s/g, "");
 			window.alert("Please don't press spacebar");
 		}
+		const newWord = event.target.value.trim();
+		if (newWord.length > 5) {
+			event.target.value = newWord.slice(0, 5); 
+			window.alert("Please enter a word with maximum 5 characters");
+		}
 		setWord(event.target.value);
 	};
 	
@@ -84,10 +89,8 @@ const Body = () => {
 					Create Crossword
 				</button>
 			</div>
-			{/* div that will contain the words */}
 			<div className='body-words' id='words'></div>
 		</div>
 	);
 };
-
 export default Body;
