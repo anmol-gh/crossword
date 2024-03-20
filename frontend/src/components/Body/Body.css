@@ -64,6 +64,7 @@
 	flex-direction: row;
 	width: 50%;
 	flex-wrap: wrap;
+	margin-top : 1rem;
 }
 
 .body-word {
@@ -73,11 +74,16 @@
 }
 
 .bouncy {
-    animation: bouncy 0.5s ease infinite;
-    position: relative;
+	animation: bouncy 0.7s ease infinite;
+	position: relative;
 }
 
 @keyframes bouncy {
-    0%, 100% { top: 0em; }
-    50% { top: -0.5em; }
+	0%,
+	100% {
+		top: 0em;
+	}
+	50% {
+		top: -0.5em;
+	}
 }
