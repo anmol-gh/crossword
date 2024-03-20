@@ -23,9 +23,11 @@ const Body = () => {
 	var wordsPlaced = [];
 
 	const ArrangeWords = (wordArray) => {
-		const grid = Array.from({ length: 10 }, () => Array.from({ length: 10 }, () => ""));
+		const grid = Array.from({ length: 10 }, () =>
+			Array.from({ length: 10 }, () => "")
+		);
 		const placedWords = [];
-	
+
 		// Function to check if a word can be placed horizontally at a given position
 		const canPlaceHorizontally = (word, row, column) => {
 			if (column + word.length > 10) return false; // Check if word exceeds grid width
@@ -36,7 +38,7 @@ const Body = () => {
 			}
 			return true;
 		};
-	
+
 		// Function to check if a word can be placed vertically at a given position
 		const canPlaceVertically = (word, row, column) => {
 			if (row + word.length > 10) return false; // Check if word exceeds grid height
@@ -47,23 +49,33 @@ const Body = () => {
 			}
 			return true;
 		};
-	
+
 		// Function to place a word horizontally at a given position
 		const placeWordHorizontally = (word, row, column) => {
 			for (let i = 0; i < word.length; i++) {
 				grid[row][column + i] = word[i];
 			}
-			placedWords.push({ word: word, row: row, column: column, direction: "horizontal" });
+			placedWords.push({
+				word: word,
+				row: row,
+				column: column,
+				direction: "horizontal",
+			});
 		};
-	
+
 		// Function to place a word vertically at a given position
 		const placeWordVertically = (word, row, column) => {
 			for (let i = 0; i < word.length; i++) {
 				grid[row + i][column] = word[i];
 			}
-			placedWords.push({ word: word, row: row, column: column, direction: "vertical" });
+			placedWords.push({
+				word: word,
+				row: row,
+				column: column,
+				direction: "vertical",
+			});
 		};
-	
+
 		// Function to place all words in the grid
 		const placeWords = () => {
 			for (const word of wordArray) {
@@ -81,12 +93,51 @@ const Body = () => {
 				}
 			}
 		};
-	
+
 		placeWords();
+		const characters = [
+			"A",
+			"B",
+			"C",
+			"D",
+			"E",
+			"F",
+			"G",
+			"H",
+			"I",
+			"J",
+			"K",
+			"L",
+			"M",
+			"N",
+			"O",
+			"P",
+			"Q",
+			"R",
+			"S",
+			"T",
+			"U",
+			"V",
+			"W",
+			"X",
+			"Y",
+			"Z",
+		];
+
+		for (let row = 0; row < 10; row++) {
+			for (let column = 0; column < 10; column++) {
+				const randomLetter =
+					characters[Math.floor(Math.random() * characters.length)];
+				console.log(randomLetter);
+				if (grid[row][column] === "") {
+					console.log("works");
+					grid[row][column] = randomLetter;
+				}
+			}
+		}
 		console.log(grid);
 		return placedWords;
 	};
-
 
 	//Function that could detect change in the word input
 	const handleChange = (event) => {
