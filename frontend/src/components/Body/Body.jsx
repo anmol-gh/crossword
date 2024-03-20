@@ -22,41 +22,71 @@ const Body = () => {
 	// Array to store the words that have been placed
 	var wordsPlaced = [];
 
-	const ArrangeWords = (wordArray, wordsPlaced) => {
-		var placed = false;
-		var word = wordArray[wordIndex];
-		var wordLength = word.length;
-		var empty = 0;
-
-		// Loop through the wordArray
-		// Iterate through the rows
-		for (let row = 0; row < crossword.length && !placed; row++) {
-			// Iterate through the columns
-			for (
-				let column = 0;
-				column < crossword[row].length && !placed;
-				column++
-			) {
-				if (crossword[row][column] === "") {
-					empty++;
-					if (empty === wordLength) {
+	const ArrangeWords = (wordArray) => {
+		const grid = Array.from({ length: 10 }, () => Array.from({ length: 10 }, () => ""));
+		const placedWords = [];
+	
+		// Function to check if a word can be placed horizontally at a given position
+		const canPlaceHorizontally = (word, row, column) => {
+			if (column + word.length > 10) return false; // Check if word exceeds grid width
+			for (let i = 0; i < word.length; i++) {
+				if (grid[row][column + i] !== "" && grid[row][column + i] !== word[i]) {
+					return false; // Check if there's a conflicting letter
+				}
+			}
+			return true;
+		};
+	
+		// Function to check if a word can be placed vertically at a given position
+		const canPlaceVertically = (word, row, column) => {
+			if (row + word.length > 10) return false; // Check if word exceeds grid height
+			for (let i = 0; i < word.length; i++) {
+				if (grid[row + i][column] !== "" && grid[row + i][column] !== word[i]) {
+					return false; // Check if there's a conflicting letter
+				}
+			}
+			return true;
+		};
+	
+		// Function to place a word horizontally at a given position
+		const placeWordHorizontally = (word, row, column) => {
+			for (let i = 0; i < word.length; i++) {
+				grid[row][column + i] = word[i];
+			}
+			placedWords.push({ word: word, row: row, column: column, direction: "horizontal" });
+		};
+	
+		// Function to place a word vertically at a given position
+		const placeWordVertically = (word, row, column) => {
+			for (let i = 0; i < word.length; i++) {
+				grid[row + i][column] = word[i];
+			}
+			placedWords.push({ word: word, row: row, column: column, direction: "vertical" });
+		};
+	
+		// Function to place all words in the grid
+		const placeWords = () => {
+			for (const word of wordArray) {
+				let placed = false;
+				while (!placed) {
+					const row = Math.floor(Math.random() * 10);
+					const column = Math.floor(Math.random() * 10);
+					if (canPlaceHorizontally(word, row, column)) {
+						placeWordHorizontally(word, row, column);
 						placed = true;
-						wordIndex += 1;
-						// Place the word horizontally
-						for (let i = 0; i < wordLength; i++) {
-							crossword[row][i] = word[i];
-						}
-						wordsPlaced.push(word);
-						delete wordArray[0];
-						console.log(crossword, wordsPlaced, wordArray);
+					} else if (canPlaceVertically(word, row, column)) {
+						placeWordVertically(word, row, column);
+						placed = true;
 					}
 				}
 			}
-		}
+		};
+	
+		placeWords();
+		console.log(grid);
+		return placedWords;
 	};
-	const setGridSizeChange = (event) => {
-		setGridSize(event.target.value);
-	};
+
 
 	//Function that could detect change in the word input
 	const handleChange = (event) => {
@@ -147,7 +177,7 @@ const Body = () => {
 				<select
 					className='body-select'
 					id=''
-					onChange={setGridSizeChange}
+					onChange={setGridSize}
 					value={gridSize}
 				>
 					<option value='5'>5x5</option>
