@@ -1,64 +1,62 @@
 import "./Body.css";
 import { useState } from "react";
 
-// Array that stores all the words
-var gridSize = 10;
+// Array to store all the words entered
 var wordArray = [];
-var maxLength = 0;
-var largestWord = "";
-var wordsPlaced = [];
-var crossword = [];
-for (let i = 0; i < gridSize; i++) {
-	crossword.push([]);
-	for (let j = 0; j < gridSize; j++) {
-		crossword[i].push("");
-	}
-}
-console.log(crossword);
-
-// const crossword = [
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// 	["", "", "", "", "", "", "", "", "", ""],
-// ];
-
-const ArrangeWords = (wordArray, wordsPlaced) => {
-	console.log(wordArray);
-	var placed = false;
-	var word = wordArray[0];
-	var wordLength = word.length;
-	var empty = 0;
-	// Sort the wordArray by length
-	// Loop through the wordArray
-	for (let row = 0; row < crossword.length && !placed; row++) {
-		for (let column = 0; column < crossword[row].length && !placed; column++) {
-			if (crossword[row][column] === "") {
-				empty++;
-				if (empty === wordLength) {
-					placed = true;
-					// Place the word horizontally
-					for (let i = 0; i < wordLength; i++) {
-						crossword[row][i] = word[i];
-					}
-					wordsPlaced.push(word);
-					// wordArray.remove(word);
-					console.log(crossword);
-				}
-			}
-		}
-	}
-};
-
+var wordIndex = 0;
 const Body = () => {
 	//Usestate that could detect change in the word input
 	const [word, setWord] = useState("");
+	// Usestate to set the grid size
+	const [gridSize, setGridSize] = useState(5);
+
+	// Function to create the crossword grid
+	var crossword = [];
+	for (let i = 0; i < gridSize; i++) {
+		crossword.push([]);
+		for (let j = 0; j < gridSize; j++) {
+			crossword[i].push("");
+		}
+	}
+
+	// Array to store the words that have been placed
+	var wordsPlaced = [];
+
+	const ArrangeWords = (wordArray, wordsPlaced) => {
+		var placed = false;
+		var word = wordArray[wordIndex];
+		var wordLength = word.length;
+		var empty = 0;
+
+		// Loop through the wordArray
+		// Iterate through the rows
+		for (let row = 0; row < crossword.length && !placed; row++) {
+			// Iterate through the columns
+			for (
+				let column = 0;
+				column < crossword[row].length && !placed;
+				column++
+			) {
+				if (crossword[row][column] === "") {
+					empty++;
+					if (empty === wordLength) {
+						placed = true;
+						wordIndex += 1;
+						// Place the word horizontally
+						for (let i = 0; i < wordLength; i++) {
+							crossword[row][i] = word[i];
+						}
+						wordsPlaced.push(word);
+						delete wordArray[0];
+						console.log(crossword, wordsPlaced, wordArray);
+					}
+				}
+			}
+		}
+	};
+	const setGridSizeChange = (event) => {
+		setGridSize(event.target.value);
+	};
 
 	//Function that could detect change in the word input
 	const handleChange = (event) => {
@@ -68,13 +66,15 @@ const Body = () => {
 			window.alert("Please don't press spacebar");
 		}
 		const newWord = event.target.value.trim();
-		if (newWord.length > 5) {
-			event.target.value = newWord.slice(0, 5); 
-			window.alert("Please enter a word with maximum 5 characters");
+		if (newWord.length > gridSize) {
+			event.target.value = newWord.slice(0, 5);
+			window.alert(
+				`Please enter a word with maximum of ${gridSize} characters`
+			);
 		}
 		setWord(event.target.value);
 	};
-	
+
 	//Function that triggers when Add Word button is clicked
 
 	const handleClick = () => {
@@ -89,11 +89,7 @@ const Body = () => {
 				window.alert(`Word ${word} already exists`);
 				return;
 			}
-			// Push the word to the wordArray and checks the largest word
-			if (word.length > maxLength) {
-				maxLength = word.length;
-				largestWord = word;
-			}
+			// Push the word to the wordArray
 			wordArray.push(word.toUpperCase());
 			console.log(wordArray);
 
@@ -109,8 +105,8 @@ const Body = () => {
 			const inputField = document.querySelector(".body-input");
 			inputField.value = "";
 
-			const btns = document.querySelectorAll('.body-words');
-			btns.forEach(btn => btn.classList.add("bouncy"));
+			const btns = document.querySelectorAll(".body-words");
+			btns.forEach((btn) => btn.classList.add("bouncy"));
 		}
 	};
 
@@ -127,6 +123,7 @@ const Body = () => {
 			window.alert("Please enter at least 3 words");
 			return;
 		}
+		// Sort the wordArray by length
 		wordArray = wordArray.sort((a, b) => b.length - a.length);
 		ArrangeWords(wordArray, wordsPlaced);
 	};
@@ -147,10 +144,15 @@ const Body = () => {
 				<button className='body-btn-create' onClick={handleCreateCrossword}>
 					Create Crossword
 				</button>
-				<select className='body-select'>
-					<option>5x5</option>
-					<option>8x8</option>
-					<option>10x10</option>
+				<select
+					className='body-select'
+					id=''
+					onChange={setGridSizeChange}
+					value={gridSize}
+				>
+					<option value='5'>5x5</option>
+					<option value='8'>8x8</option>
+					<option value='10'>10x10</option>
 				</select>
 			</div>
 			<div className='body-words' id='words'></div>
