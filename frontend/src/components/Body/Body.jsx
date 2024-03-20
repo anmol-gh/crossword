@@ -22,7 +22,36 @@ const Body = () => {
 	// Array to store the words that have been placed
 	var wordsPlaced = [];
 
-	const ArrangeWords = (wordArray, wordsPlaced) => {
+	const placeVertical = (word, crossword, row, column) => {
+		console.log("PlaceVertical");
+	};
+	const placeHorizontal = (word, crossword, row, column) => {
+		console.log("PlaceHorizontal");
+	};
+
+	const ArrangeWords = (wordArray, wordIndex, crossword) => {
+		var placed = false;
+		while (wordIndex < wordArray.length) {
+			console.log("inside arrange words");
+			const word = wordArray[wordIndex];
+			const firstLetter = word[0];
+			for (let row = 0; row < crossword.length && !placed; row++) {
+				// Iterate through the columns
+				for (
+					let column = 0;
+					column < crossword[row].length && !placed;
+					column++
+				) {
+					if (crossword[row][column] === firstLetter) {
+						placeVertical(word, crossword, row, column);
+						placeHorizontal(wordArray, wordIndex, crossword, row, column);
+					}
+				}
+			}
+		}
+	};
+
+	const ArrangeFirstWord = (wordArray, wordsPlaced) => {
 		var placed = false;
 		var word = wordArray[wordIndex];
 		var wordLength = word.length;
@@ -53,6 +82,7 @@ const Body = () => {
 				}
 			}
 		}
+		ArrangeWords(wordArray, wordIndex, crossword);
 	};
 	const setGridSizeChange = (event) => {
 		setGridSize(event.target.value);
@@ -125,7 +155,7 @@ const Body = () => {
 		}
 		// Sort the wordArray by length
 		wordArray = wordArray.sort((a, b) => b.length - a.length);
-		ArrangeWords(wordArray, wordsPlaced);
+		ArrangeFirstWord(wordArray, wordsPlaced);
 	};
 
 	return (
