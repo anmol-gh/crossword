@@ -128,9 +128,9 @@ const Body = () => {
 			for (let column = 0; column < 10; column++) {
 				const randomLetter =
 					characters[Math.floor(Math.random() * characters.length)];
-				console.log(randomLetter);
+				// console.log(randomLetter);
 				if (grid[row][column] === "") {
-					console.log("works");
+					// console.log("works");
 					grid[row][column] = randomLetter;
 				}
 			}
