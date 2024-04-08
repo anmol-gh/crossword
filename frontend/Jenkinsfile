@@ -1,17 +1,33 @@
-pipeline{
+pipeline {
     agent any
-    tools{
-        maven 'Maven'
+    
+    tools {
+        nodejs 'NODEJS_HOME' 
     }
-    stages{
-        stage("SCM Checkout"){
-            steps{
-            git 'https://github.com/GarvGopalia/crossword.git'
+    
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
             }
         }
-        stage("Maven Build"){
-            steps{
-                bat 'mvn clean package'
+        
+        stage('Run Tests') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm run build' 
+            }
+        }
+        
+        stage('Finalize') {
+            steps {
+                echo 'Build Success!'
+                // You can add further steps here, like deploying artifacts or notifying teams
             }
         }
     }
