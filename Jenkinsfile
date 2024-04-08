@@ -1,33 +1,34 @@
 pipeline {
     agent any
-    
-    tools {
-        nodejs "1.2.3"
-    }
-    
     stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', 
+                    url: 'https://github.com/GarvGopalia/crossword.git'
+            }
+        }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                script {
+                    sh 'npm install' 
+                }
             }
         }
-        
-        stage('Run Tests') {
+        stage('Build/Test') {
             steps {
-                sh 'npm test'
+                script {
+                    sh 'npm run build' 
+                }
             }
         }
-        
-        stage('Build') {
-            steps {
-                sh 'npm run build' 
+        stage('Deploy (Optional)') {
+            when {
+                expression {
+                    branch == 'main'
+                }
             }
-        }
-        
-        stage('Finalize') {
             steps {
-                echo 'Build Success!'
-                // You can add further steps here, like deploying artifacts or notifying teams
+                sh 'scp -r dist/* user@host:/path/to/deployment/directory' 
             }
         }
     }
