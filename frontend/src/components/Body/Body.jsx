@@ -165,12 +165,13 @@ const Body = () => {
 			window.alert("Please don't press spacebar");
 		}
 		const newWord = event.target.value.trim();
-		if (newWord.length > gridSize) {
-			event.target.value = newWord.slice(0, 5);
-			window.alert(
-				`Please enter a word with maximum of ${gridSize} characters`
-			);
-		}
+		// Prevent input if length of word exceeds the grid size
+		// if (newWord.length > gridSize) {
+		// 	event.target.value = newWord.slice(0, 5);
+		// 	window.alert(
+		// 		`Please enter a word with maximum of ${gridSize} characters`
+		// 	);
+		// }
 		setWord(event.target.value);
 	};
 
