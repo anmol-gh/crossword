@@ -240,7 +240,7 @@ const Body = () => {
 					onKeyDown={keyPress}
 				></input>
 				<button className='body-btn' onClick={handleClick}>
-					Add Word
+					Adds Word
 				</button>
 				<button className='body-btn-create' onClick={handleCreateCrossword}>
 					Create Crossword

@@ -1,0 +1,1 @@
+The Crossword generator tool is an innovative platform that empowers users to create and play customized crossword puzzles.With our tool, users can easily input words of their choice and generate unique crossoword puzzles tailored to their preferences.
