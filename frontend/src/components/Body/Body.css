@@ -36,6 +36,12 @@
 	}
 }
 
+@media print {
+	.body-container {
+		display: none;
+	}
+}
+
 .body-select {
 	margin-left: 5px;
 	padding: 5px;

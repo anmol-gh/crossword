@@ -13,6 +13,12 @@
 	color: #f28a2e;
 }
 
+@media print {
+	.header-container {
+		display: none;
+	}
+}
+
 .header-paragraph {
 	font-size: 1.3rem;
 	color: #00796d;
