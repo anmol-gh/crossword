@@ -30,15 +30,16 @@
 	padding: 5px;
 }
 
-@media screen and (max-width : 426px) {
+@media screen and (max-width : 426px) and (min-width : 375px) {
 	.body-btn, .body-btn-create {
 		font-size : 11px;
 	}
-}
-
-@media print {
 	.body-container {
-		display: none;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.body-input {
+		width: 25%;
 	}
 }
 
