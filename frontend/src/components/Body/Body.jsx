@@ -4,7 +4,26 @@ import { useState } from "react";
 // Array to store all the words entered
 var wordArray = [];
 var wordIndex = 0;
-const Body = () => {
+
+// Function to display the crossword
+const displayCrossword = (grid) => {
+	var tableDiv = document.getElementsByClassName("crossword-container")[0];
+	var table = tableDiv.getElementsByTagName('table')[0]
+	console.log(table)
+	var tableRows = table.getElementsByTagName('tr');
+	for (var row = 0; row < 10; row++){
+		var tableRow = tableRows[row]
+		for (var column = 0; column < 10; column++) {
+			var tableData = tableRow.getElementsByTagName('td')[column]
+			if (grid[row][column] === "") {
+				tableData.innerHTML = "&nbsp;";
+			} else {
+				tableData.innerHTML = grid[row][column];
+			}
+		}
+	}
+} 
+const Body = () => {  
 	//Usestate that could detect change in the word input
 	const [word, setWord] = useState("");
 	// Usestate to set the grid size
@@ -128,14 +147,13 @@ const Body = () => {
 			for (let column = 0; column < 10; column++) {
 				const randomLetter =
 					characters[Math.floor(Math.random() * characters.length)];
-				console.log(randomLetter);
 				if (grid[row][column] === "") {
-					console.log("works");
 					grid[row][column] = randomLetter;
 				}
 			}
 		}
 		console.log(grid);
+		displayCrossword(grid);
 		return placedWords;
 	};
 
@@ -147,12 +165,13 @@ const Body = () => {
 			window.alert("Please don't press spacebar");
 		}
 		const newWord = event.target.value.trim();
-		if (newWord.length > gridSize) {
-			event.target.value = newWord.slice(0, 5);
-			window.alert(
-				`Please enter a word with maximum of ${gridSize} characters`
-			);
-		}
+		// Prevent input if length of word exceeds the grid size
+		// if (newWord.length > gridSize) {
+		// 	event.target.value = newWord.slice(0, 5);
+		// 	window.alert(
+		// 		`Please enter a word with maximum of ${gridSize} characters`
+		// 	);
+		// }
 		setWord(event.target.value);
 	};
 
@@ -206,7 +225,8 @@ const Body = () => {
 		}
 		// Sort the wordArray by length
 		wordArray = wordArray.sort((a, b) => b.length - a.length);
-		ArrangeWords(wordArray, wordsPlaced);
+		// ArrangeWords(wordArray, wordsPlaced);
+		ArrangeWords(wordArray);
 	};
 
 	return (
