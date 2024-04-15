@@ -43,6 +43,12 @@
 	}
 }
 
+@media print {
+	.body-container {
+		display: none;
+	}
+}
+
 .body-select {
 	margin-left: 5px;
 	padding: 5px;
@@ -78,6 +84,12 @@
 	width: 50%;
 	flex-wrap: wrap;
 	margin-top : 1rem;
+}
+
+@media screen and (max-width : 426px) and (min-width : 319px) {
+	.body-words {
+		width: 100%;
+	}
 }
 
 .body-word {

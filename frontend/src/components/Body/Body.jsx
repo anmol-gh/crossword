@@ -245,7 +245,7 @@ const Body = () => {
 				<button className='body-btn-create' onClick={handleCreateCrossword}>
 					Create Crossword
 				</button>
-				<select
+				{/* <select
 					className='body-select'
 					id=''
 					onChange={setGridSize}
@@ -254,7 +254,7 @@ const Body = () => {
 					<option value='5'>5x5</option>
 					<option value='8'>8x8</option>
 					<option value='10'>10x10</option>
-				</select>
+				</select> */}
 			</div>
 			<div className='body-words' id='words'></div>
 		</div>
