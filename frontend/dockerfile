@@ -1,0 +1,19 @@
+FROM node:18
+
+WORKDIR /codebase
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
+# Command to create a docker image
+# docker build -t crosswordy:latest .
+
+#Command to run the container
+# docker run -d -p 3000:3000 --name Crossword crosswordy:latest

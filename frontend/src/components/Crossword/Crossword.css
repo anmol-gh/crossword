@@ -1,9 +1,19 @@
 .crossword-container {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	width: 100vw;
-	height: 45vh;
+	height: 50vh;
+	align-items: center;
+}
+
+.crossword-table {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 40vh;
+	width: 100vw;
+
 }
 
 table {
@@ -33,6 +43,31 @@ table {
 }
 td {
 	border: 1px solid black;
+	height: 15px;
+	width: 10px;
 	/* padding: 10px 20px; */
 	padding: 5px 10px;
+}
+
+.download-btn {
+	cursor: pointer;
+	padding: 5px;
+	/* height: 5vh; */
+	display: flex;
+	justify-content: center;
+}
+
+
+.download-btn:hover {
+	border-radius: 2px;
+	background-color: #ff7700;
+	color: white;
+	border: 2px solid #00796d;
+	transition: 0.1s;
+}
+
+@media print {
+	.download-btn {
+		display: none;
+	}
 }

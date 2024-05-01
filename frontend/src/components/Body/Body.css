@@ -30,9 +30,22 @@
 	padding: 5px;
 }
 
-@media screen and (max-width : 426px) {
+@media screen and (max-width : 426px) and (min-width : 375px) {
 	.body-btn, .body-btn-create {
 		font-size : 11px;
+	}
+	.body-container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.body-input {
+		width: 25%;
+	}
+}
+
+@media print {
+	.body-container {
+		display: none;
 	}
 }
 
@@ -71,6 +84,12 @@
 	width: 50%;
 	flex-wrap: wrap;
 	margin-top : 1rem;
+}
+
+@media screen and (max-width : 426px) and (min-width : 319px) {
+	.body-words {
+		width: 100%;
+	}
 }
 
 .body-word {
