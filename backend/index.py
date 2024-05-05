@@ -5,7 +5,9 @@ import bs4
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from time import sleep 
+from selenium.webdriver.support.ui import WebDriverWait
+
+from time import sleep
 driver = webdriver.Edge()
 driver.get("https://crosswordy.vercel.app/")
 
@@ -31,8 +33,21 @@ def get_data(words: list, api: str):
 
 
 words = []
-for _ in range(5):
+
+number = int(input("Enter the number of words you want to add: "))
+
+for _ in range(number):
     get_data(words, "https://random-word-api.herokuapp.com/word?number=1&length=5")
 
 createcrossword_btn.click()
-sleep(1000)
+try:
+    wait = WebDriverWait(driver, timeout=2)
+    alert = wait.until(lambda d: d.switch_to.alert)
+    text = alert.text
+    if text == "Please enter at least 3 words":
+        print(f"Test failed with the text {text}")
+    alert.accept()
+
+except:
+    print("Test passed, the crossword is generated.")
+# sleep(1000)
