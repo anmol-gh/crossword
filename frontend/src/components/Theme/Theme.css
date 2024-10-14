@@ -1,0 +1,21 @@
+.theme-container {
+	height: 70vh;
+}
+
+.theme-first-row {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: row;
+	width: 100%;
+}
+
+.theme-select {
+    padding : 5px;
+}
+
+.theme-btn {
+	cursor: pointer;
+	margin-left: 5px;
+	padding: 5px;
+}

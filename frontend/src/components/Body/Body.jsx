@@ -3,7 +3,6 @@ import { useState } from "react";
 
 // Array to store all the words entered
 var wordArray = [];
-var wordIndex = 0;
 
 // Function to display the crossword
 const displayCrossword = (grid) => {
