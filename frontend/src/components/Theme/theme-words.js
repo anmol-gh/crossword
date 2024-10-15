@@ -24,23 +24,23 @@ const ThemeData = {
 		"PIGEON",
 		"FLAMINGO",
 		"OSTRICH",
-		"KINGFISHER",
+		"CHICKEN",
 		"CROW",
 		"RAVEN",
 		"FALCON",
 		"SWAN",
 		"DOVE",
 		"VULTURE",
-		"WOODPECKER"
+		"OWL"
 	],
 	"Fruits": [
 		"APPLE",
 		"BANANA",
 		"ORANGE",
 		"MANGO",
-		"GRAPE",
-		"PINEAPPLE",
-		"WATERMELON",
+		"GRAPES",
+		"CHIKU",
+		"PAPAYA",
 		"CHERRY",
 		"KIWI",
 		"PEAR",
@@ -84,7 +84,7 @@ const ThemeData = {
 		"TRAM",
 		"SKATEBOARD"
 	],
-	"Jobs": [
+	"Jobs": [ 
 		"DOCTOR",
 		"TEACHER",
 		"ENGINEER",
@@ -94,12 +94,12 @@ const ThemeData = {
 		"ARTIST",
 		"CHEF",
 		"DENTIST",
-		"PROGRAMMER",
-		"ARCHITECT",
+		"CODER",
+		"LAWYER",
 		"PLUMBER",
 		"MECHANIC",
-		"ACCOUNTANT",
-		"RESEARCHER"
+		"SINGER",
+		"DANCER"
 	],
 	"Musical Instruments": [
 		"GUITAR",
@@ -109,9 +109,9 @@ const ThemeData = {
 		"TRUMPET",
 		"VIOLIN",
 		"CELLO",
-		"SAXOPHONE",
-		"HARMONICA",
-		"CLARINET",
+		"TABLA",
+		"UKULELE",
+		"WHISTLE",
 		"TROMBONE",
 		"OBOE",
 		"BASS",
