@@ -1,3 +1,15 @@
 .navigate {
     height : 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigate-btn {
+    padding : 5px;
+    margin : 5px;
+}
+
+.navigate-a {
+    text-decoration: none;
 }

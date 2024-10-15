@@ -5,10 +5,10 @@ const Navigate = () => {
 	return (
 		<div className='navigate'>
 			<button className='navigate-btn'>
-				<a href='/create'>Create New Crossword </a>
+				<a href='/create' className="navigate-a">Create New Crossword </a>
 			</button>
 			<button className='navigate-btn'>
-				<a href='/theme'>Theme Based Crosswords</a>
+				<a href='/theme' className="navigate-a">Theme Based Crosswords</a>
 			</button>
 		</div>
 	);

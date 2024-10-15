@@ -202,6 +202,12 @@ const Theme = () => {
 							<option value='Jobs' className='searchbar-option'>
 								Jobs
 							</option>
+							<option value='Musical Instruments' className='searchbar-option'>
+								Musical Instruments
+							</option>
+							<option value='Sports' className='searchbar-option'>
+								Sports
+							</option>
 						</select>
 						<button onClick={handleCreateCrossword} className='theme-btn'>
 							Create Crossword
