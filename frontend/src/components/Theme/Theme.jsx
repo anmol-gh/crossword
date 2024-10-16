@@ -6,7 +6,6 @@ import themeWords from "./theme-words.js";
 const displayCrossword = (grid) => {
 	var tableDiv = document.getElementsByClassName("crossword-container")[0];
 	var table = tableDiv.getElementsByTagName("table")[0];
-	console.log(table);
 	var tableRows = table.getElementsByTagName("tr");
 	for (var row = 0; row < 10; row++) {
 		var tableRow = tableRows[row];
@@ -23,15 +22,33 @@ const displayCrossword = (grid) => {
 
 const Theme = () => {
 	var wordArray = [];
-	const [word, setWord] = useState("");
 	// UseState to select and declare the crossword theme
-	const [Theme, SetTheme] = useState("");
-	// UseState to select and declare number of words in the crossword.
-	const [Number, SetNumber] = useState("3");
+	const [Theme, SetTheme] = useState("Animals");
 	const selectChange = (e) => {
 		SetTheme(e.target.value);
-		console.log(Theme);
-		console.log(themeWords[e.target.value]);
+	};
+	// UseState to select and declare number of words in the crossword.
+	const [Number, SetNumber] = useState("4");
+	const selectNumberChange = (e) => {
+		SetNumber(e.target.value);
+	};
+
+	// Function to display the words
+	const DisplayWords = (wordArray) => {
+		// document.
+		console.log(wordArray);
+		let area = document.getElementById("theme-words");
+		console.log(area);
+		const newElement = document.createElement("div");
+		newElement.id = "theme-words";
+		// area = newElement;
+		for (let i = 0; i < wordArray.length; i++) {
+			const newElement = document.createElement("div");
+			newElement.classList.add("body-words");
+			newElement.textContent = wordArray[i];
+			console.log(newElement);
+			area.appendChild(newElement);
+		}
 	};
 	const ArrangeWords = (wordArray) => {
 		const grid = Array.from({ length: 10 }, () =>
@@ -144,7 +161,6 @@ const Theme = () => {
 				}
 			}
 		}
-		console.log(grid);
 		displayCrossword(grid);
 		return placedWords;
 	};
@@ -152,20 +168,21 @@ const Theme = () => {
 	//Function that triggers when Create Crossword button is clicked
 
 	const handleCreateCrossword = () => {
-		console.log(wordArray);
-		while (wordArray.length < 5) {
-			const randomIndex = Math.floor(Math.random() * themeWords[Theme].length); // pick a random index
-			const randomElement = themeWords[Theme][randomIndex]; // get the element at that index
-
+		while (wordArray.length < Number) {
+			// pick a random index
+			const randomIndex = Math.floor(Math.random() * themeWords[Theme].length);
+			// get the element at that index
+			const randomElement = themeWords[Theme][randomIndex];
 			if (!wordArray.includes(randomElement)) {
 				// ensure the element is unique
 				wordArray.push(randomElement); // add to new array
 			}
 		}
-		console.log(wordArray, "Selected");
+		console.log(wordArray);
+		DisplayWords(wordArray);
+
 		// Sort the wordArray by length
 		wordArray = wordArray.sort((a, b) => b.length - a.length);
-		console.log(wordArray, "sorted");
 
 		// ArrangeWords(wordArray, wordsPlaced);
 		ArrangeWords(wordArray);
@@ -176,8 +193,8 @@ const Theme = () => {
 				<div className='theme-first-row'>
 					<div className='theme-dropdown'>
 						<select
-							name='Filter by Region'
-							id='region'
+							name='Select Theme'
+							id='theme'
 							className='theme-select'
 							onChange={selectChange}
 						>
@@ -209,10 +226,32 @@ const Theme = () => {
 								Sports
 							</option>
 						</select>
-						<button onClick={handleCreateCrossword} className='theme-btn'>
-							Create Crossword
-						</button>
 					</div>
+
+					<div className='word-dropdown '>
+						<select
+							name='Select Words'
+							id='numbers'
+							className='theme-select'
+							onChange={selectNumberChange}
+						>
+							<option value='4' className='searchbar-option'>
+								4
+							</option>
+							<option value='5' className='searchbar-option'>
+								5
+							</option>
+							<option value='6' className='searchbar-option'>
+								6
+							</option>
+						</select>
+					</div>
+					<button onClick={handleCreateCrossword} className='theme-btn'>
+						Create Crossword
+					</button>
+				</div>
+				<div className='theme-words' id='theme-words'>
+					hi
 				</div>
 				<Crossword />
 			</div>

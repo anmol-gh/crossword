@@ -1,13 +1,13 @@
 const ThemeData = {
 	"Animals": [
 		"LION",
-		"ELEPHANT",
+		"FOX",
 		"DOG",
 		"CAT",
-		"GIRAFFE",
+		"HORSE",
 		"ZEBRA",
 		"TIGER",
-		"KANGAROO",
+		"RABBIT",
 		"PANDA",
 		"WHALE",
 		"DOLPHIN",

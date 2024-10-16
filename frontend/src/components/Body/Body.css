@@ -1,5 +1,7 @@
 .body-container {
-	height: 20vh;
+	margin-top : 5vh;
+	height: 15vh;
+	width : 100%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;

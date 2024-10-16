@@ -1,15 +1,49 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Body from "../Body/Body";
+import Crossword from "../Crossword/Crossword";
+import Help from "../Help/Help";
+import Theme from "../Theme/Theme";
 import "./Navigate.css";
 const Navigate = () => {
+	const [activeComponent, setActiveComponent] = useState(null);
+
+	const handleButtonClick = (componentName) => {
+		setActiveComponent(componentName);
+	};
 	return (
-		<div className='navigate'>
-			<button className='navigate-btn'>
-				<a href='/create' className="navigate-a">Create New Crossword </a>
-			</button>
-			<button className='navigate-btn'>
-				<a href='/theme' className="navigate-a">Theme Based Crosswords</a>
-			</button>
+		<div className='navigate-container'>
+			<div className='nav-container-one'>
+				<button
+					className='navigate-btn'
+					onClick={() => handleButtonClick("User")}
+				>
+						User Based Crossword{" "}
+				</button>
+				<button
+					className='navigate-btn'
+					onClick={() => handleButtonClick("Theme")}
+				>
+					Theme Based Crossword
+				</button>
+				<button
+					className='navigate-btn'
+					onClick={() => handleButtonClick("How")}
+				> How to use Crosswordy
+				</button>
+			</div>
+			<div className='nav-container-two'>
+				{/* <Body />
+				<Crossword /> */}
+				{activeComponent === "User" && (
+					<>
+						<Body />
+						<Crossword/>
+					</>
+				)}
+				{activeComponent === "Theme" && <Theme />}
+				{activeComponent === "How" && <Help />}
+			</div>
 		</div>
 	);
 };

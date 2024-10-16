@@ -1,14 +1,36 @@
-.navigate {
+.navigate-container {
+    /* border-top : 2px solid black; */
     height : 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.nav-container-one {
+ width : 30vw;
+ height: 70vh;
+ /* border-right: 2px solid black; */
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.nav-container-two {
+    width : 70vw;
+    height : 70vh;
+}
+
 .navigate-btn {
+    width : 20vw;
     padding : 5px;
     margin : 5px;
 }
+
+.navigate-btn:hover {
+    cursor: pointer;
+}
+
 
 .navigate-a {
     text-decoration: none;
