@@ -39,15 +39,13 @@ const Theme = () => {
 		console.log(wordArray);
 		let area = document.getElementById("theme-words");
 		console.log(area);
-		const newElement = document.createElement("div");
-		newElement.id = "theme-words";
 		// area = newElement;
+		area.innerHTML = '';
 		for (let i = 0; i < wordArray.length; i++) {
-			const newElement = document.createElement("div");
-			newElement.classList.add("body-words");
-			newElement.textContent = wordArray[i];
-			console.log(newElement);
-			area.appendChild(newElement);
+			const childElement = document.createElement("div");
+			childElement.classList.add("body-word");
+			childElement.textContent = wordArray[i];
+			area.appendChild(childElement);
 		}
 	};
 	const ArrangeWords = (wordArray) => {
@@ -250,9 +248,7 @@ const Theme = () => {
 						Create Crossword
 					</button>
 				</div>
-				<div className='theme-words' id='theme-words'>
-					hi
-				</div>
+				<div className='body-words bouncy' id='theme-words'></div>
 				<Crossword />
 			</div>
 		</>

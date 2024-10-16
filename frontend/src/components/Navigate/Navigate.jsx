@@ -6,7 +6,7 @@ import Help from "../Help/Help";
 import Theme from "../Theme/Theme";
 import "./Navigate.css";
 const Navigate = () => {
-	const [activeComponent, setActiveComponent] = useState(null);
+	const [activeComponent, setActiveComponent] = useState("User");
 
 	const handleButtonClick = (componentName) => {
 		setActiveComponent(componentName);
