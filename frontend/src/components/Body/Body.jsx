@@ -2,7 +2,7 @@ import "./Body.css";
 import { useState } from "react";
 
 // Array to store all the words entered
-var wordArray = [];
+// var wordArray = [];
 
 // Function to display the crossword
 const displayCrossword = (grid) => {
@@ -24,6 +24,7 @@ const displayCrossword = (grid) => {
 } 
 const Body = () => {  
 	//Usestate that could detect change in the word input
+	const [wordArray, setWordArray] = useState([])
 	const [word, setWord] = useState("");
 	// Usestate to set the grid size
 	const [gridSize, setGridSize] = useState(5);

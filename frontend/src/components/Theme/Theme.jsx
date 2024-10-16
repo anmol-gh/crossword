@@ -187,8 +187,8 @@ const Theme = () => {
 	};
 	return (
 		<>
-			<div className='theme-container'>
-				<div className='theme-first-row'>
+			<div className='body-container'>
+				<div className='body-first-row'>
 					<div className='theme-dropdown'>
 						<select
 							name='Select Theme'
@@ -249,8 +249,8 @@ const Theme = () => {
 					</button>
 				</div>
 				<div className='body-words bouncy' id='theme-words'></div>
-				<Crossword />
 			</div>
+				<Crossword />
 		</>
 	);
 };
