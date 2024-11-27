@@ -6,7 +6,7 @@
 	/* display: flex;
 	align-items: flex-start;
 	width: 100%; */
-	
+
 	/* margin-top: 5vh; */
 	height: 15vh;
 	width: 100%;
@@ -39,5 +39,17 @@
 @media screen and (max-width: 426px) and (min-width: 319px) {
 	.body-words {
 		width: 100%;
+	}
+}
+
+@media print {
+	.download-btn {
+		display: none;
+	}
+	.navigate-btn {
+		display: none;
+	}
+	.theme-first-row {
+		display: none;
 	}
 }

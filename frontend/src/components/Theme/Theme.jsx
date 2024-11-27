@@ -214,9 +214,6 @@ const Theme = () => {
 							<option value='Vehicles' className='searchbar-option'>
 								Vehicles
 							</option>
-							<option value='Jobs' className='searchbar-option'>
-								Jobs
-							</option>
 							<option value='Musical Instruments' className='searchbar-option'>
 								Musical Instruments
 							</option>

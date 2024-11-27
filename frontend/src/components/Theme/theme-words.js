@@ -75,14 +75,14 @@ const ThemeData = {
 		"AIRPLANE",
 		"BOAT",
 		"TRUCK",
-		"HELICOPTER",
-		"MOTORCYCLE",
+		"SHIP",
+		"BIKE",
 		"SCOOTER",
 		"SUBMARINE",
 		"TANK",
 		"VAN",
 		"TRAM",
-		"SKATEBOARD"
+		"CRUISE"
 	],
 	"Jobs": [ 
 		"DOCTOR",
