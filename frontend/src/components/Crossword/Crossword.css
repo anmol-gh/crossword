@@ -69,4 +69,10 @@ td {
 	.download-btn {
 		display: none;
 	}
+	.navigate-container {
+		display: none;
+	}
+	.theme-first-row {
+		display: none;
+	}
 }
