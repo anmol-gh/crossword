@@ -8,7 +8,6 @@ const AI = () => {
 		SetNumber(e.target.value);
 	};
 	const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API);
-	console.log(process.env.REACT_APP_API)
 
 	
 	const schema = {
