@@ -7,9 +7,7 @@ const AI = () => {
 	const selectNumberChange = (e) => {
 		SetNumber(e.target.value);
 	};
-	const genAI = new GoogleGenerativeAI(
-		"AIzaSyCGKc_57FG8aPuJeW3tffyiTxzqeNL2u1o"
-	);
+	const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 	
 	const schema = {
