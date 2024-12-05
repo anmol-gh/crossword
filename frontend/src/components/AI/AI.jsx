@@ -8,6 +8,7 @@ const AI = () => {
 		SetNumber(e.target.value);
 	};
 	const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+	console.log(process.env.API_KEY)
 
 	
 	const schema = {
