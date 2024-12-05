@@ -7,7 +7,7 @@ const AI = () => {
 	const selectNumberChange = (e) => {
 		SetNumber(e.target.value);
 	};
-	const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+	const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API);
 
 	
 	const schema = {
