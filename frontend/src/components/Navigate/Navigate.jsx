@@ -4,6 +4,7 @@ import Body from "../Body/Body";
 import Crossword from "../Crossword/Crossword";
 import Help from "../Help/Help";
 import Theme from "../Theme/Theme";
+import AI from "../AI/AI.jsx";
 import "./Navigate.css";
 const Navigate = () => {
 	const [activeComponent, setActiveComponent] = useState("User");
@@ -18,7 +19,7 @@ const Navigate = () => {
 					className='navigate-btn'
 					onClick={() => handleButtonClick("User")}
 				>
-						User Based Crossword{" "}
+					User Based Crossword{" "}
 				</button>
 				<button
 					className='navigate-btn'
@@ -28,8 +29,16 @@ const Navigate = () => {
 				</button>
 				<button
 					className='navigate-btn'
+					onClick={() => handleButtonClick("AI")}
+				>
+					Create using AI
+				</button>
+				<button
+					className='navigate-btn'
 					onClick={() => handleButtonClick("How")}
-				> How to use Crosswordy
+				>
+					{" "}
+					How to use Crosswordy
 				</button>
 			</div>
 			<div className='nav-container-two'>
@@ -38,11 +47,12 @@ const Navigate = () => {
 				{activeComponent === "User" && (
 					<>
 						<Body />
-						<Crossword/>
+						<Crossword />
 					</>
 				)}
 				{activeComponent === "Theme" && <Theme />}
 				{activeComponent === "How" && <Help />}
+				{activeComponent === "AI" && <AI></AI>}
 			</div>
 		</div>
 	);
