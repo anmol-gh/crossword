@@ -7,9 +7,9 @@ const AI = () => {
 	const selectNumberChange = (e) => {
 		SetNumber(e.target.value);
 	};
-	const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY);
-	console.log(process.env.REACT_APP_API_)
-	
+	const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API);
+	console.log(process.env.REACT_APP_API)
+
 	
 	const schema = {
 		description: "List of words",
